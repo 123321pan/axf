@@ -1,0 +1,24 @@
+{% extends 'axf/base.html' %}
+{%  load static %}
+{% block linkscript %}
+ <script type="text/javascript" charset="utf-8" src="{%static 'mine/js/mine.js'  %}"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'mine/css/mine.css' %}">
+{% endblock %}
+{% block base %}
+<div id="mine">
+    <section class="fixed">
+        <span class="glyphicon glyphicon-user"></span>
+        <p><a href="/login/">{{ username }}</a></p>
+        <p><span class="glyphicon glyphicon-fire"></span><span>等级</span></p>
+        <a id="regis" href="/register/">注册</a>
+        <p><span class="glyphicon glyphicon-heart"></span>商品收藏</p>
+    </section>
+    <section class="mine">
+        <p>
+            <span>我的订单</span><a>查看全部订单</a>
+        </p>
+     <p><a href="/quit/">退出登录</a></p>
+    </section>
+</div>
+<h1>mine</h1>
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends 'axf/base.html' %}
+{%  load static %}
+{% block linkscript %}
+ <script type="text/javascript" charset="utf-8" src="{%static 'home/js/home.js'  %}"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'home/css/home.css' %}">
+{% endblock %}
+{% block base %}
+<div id="home">
+    <section class="swiper-contatiner" id="topSwiper">
+        <div class="swpier-wrapper">
+            {% for item in wheelsList %}
+                <div class="swiper-slide">
+                    <a href="#">
+                        <img src="{{ item.img }}"/>
+                    </a>
+                </div>
+            {% endfor %}
+            
+        </div>
+    </section >
+    <section class="topMenu">
+        <nav>
+            <ul>
+                {% for item in navList %}
+                    <li>
+                        <a href="/a/{{ item.trackid }}">
+                            <img src="{{ item.img }}"/>
+                            <span>{{ item.name }}</span>
+                        </a>
+                    </li>
+                {% endfor %}
+
+            </ul>
+        </nav>
+
+    </section>
+</div>
+{% endblock %}

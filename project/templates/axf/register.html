@@ -1,0 +1,63 @@
+{% extends 'axf/base.html' %}
+{%  load static %}
+{% block linkscript %}
+ <script type="text/javascript" charset="utf-8" src="{%static 'mine/js/register.js'  %}"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'mine/css/register.css' %}">
+{% endblock %}
+{% block base %}
+<div id="register">
+    <div id="header">
+        <a href="/mine/"><p>返回</p></a>
+    </div>
+    <form class="form-horizontal" action="/register/" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="input-group">
+            <span class="input-group-addon">账号</span>
+            <input id="account" type="text" class="form-control" placeholder="账号长度6-12" name="userAccount">
+
+        </div>
+        <span id="accounterr" class="error">账号格式错误</span>
+        <span id="checkerr" class="error">账号已经被占用</span>
+        <br>
+        <div class="input-group">
+            <span class="input-group-addon">密码</span>
+            <input id="pass" type="password" class="form-control" placeholder="密码长度6-12"  name="userPasswd">
+
+        </div>
+            <span id="passerr" class="error">密码格式错误</span>
+        <br>
+        <div class="input-group">
+            <span class="input-group-addon">验证密码</span>
+            <input id="passwd" type="password" class="form-control" placeholder="密码长度6-12" name="userPasswd">
+
+        </div>
+             <span id="passwderr" class="error">二次密码不一致</span>
+        <div class="input-group">
+            <span class="input-group-addon">昵称</span>
+            <input id="name" type="text" class="form-control" name="userName" >
+
+        </div>
+        <div class="input-group">
+            <span class="input-group-addon">电话</span>
+            <input id="phone" type="text" class="form-control" name="userPhone" >
+
+        </div>
+        <div class="input-group">
+            <span class="input-group-addon">地址</span>
+            <input id="address" type="text" class="form-control" name="userAddress" >
+        </div>
+        <div class="input-group">
+            <span class="input-group-addon">等级</span>
+            <input  type="text" class="form-control" name="userRank" >
+        </div>
+        <div class="input-group">
+            <span class="input-group-addon">头像</span>
+            <input  type="file" class="form-control" name="userImg" >
+        </div>
+        <div class="input-group">
+            <span class="input-group-addon">注册</span>
+            <input  type="submit" class="form-control"  value="register">
+        </div>
+    </form>
+</div>
+{% endblock %}
